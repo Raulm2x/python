@@ -1,4 +1,6 @@
-def suma (a,b):
+def suma(a: int, b: int) -> int:
     return a+b
 
-print(suma(2,5))
+a = int(input("numero 1: "))
+b = int(input("numero 2: "))
+print(suma(a, b))
