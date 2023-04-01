@@ -1,4 +1,7 @@
 def resta (a:int,b:int):
-    return a-b
+    return f'{a} - {b} = {a-b}'
 
-print(resta(9,7))
+a=int(input('a: '))
+b=int(input('b: '))
+
+print(resta(a,b))
