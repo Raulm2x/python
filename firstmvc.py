@@ -65,6 +65,7 @@ class Controller():
         self.interfaz = interfaz
 
     def aceptar(self):
+        #Validación de la entrada
         self.interfaz.labelDescuentos.config(text="")
         try:
             self.estrato = int(self.interfaz.entEstrato.get())
@@ -72,21 +73,22 @@ class Controller():
             self.interfaz.labelError.config(text="Ingrese una opción válida (1-5).", fg='red')
         else:
             if self.estrato not in [1,2,3,4,5]:
-                self.interfaz.labelError.config(text="Ingrese una opción válida (1-5).", fg='red')   
+                self.interfaz.labelError.config(text="Ingrese una opción válida (1-5).", fg='red')
             else:
+                #Creación del objeto usuario a partir de la clase Persona con su No. de estrato
                 self.interfaz.labelError.config(text="")
                 self.usuario = Persona(self.estrato)
                 self.descuentos = ''
                 
+                #Presentación de los datos del diccionario 'descuentos'
                 for k,v in self.usuario.calcular_descuentos().items():
                     if v < 1:
                         self.descuentos += f"{k}: {v*100:.2f}% "+ "\n"
                     else:
                         self.descuentos += f"{k}: $ {v}"
-                print(self.descuentos)
                 self.interfaz.labelDescuentos.config(text=self.descuentos)
         
-
+#Inicio de la aplicación
 if __name__ == '__main__':
     root = Tk()
     interfaz = Interfaz(root)
