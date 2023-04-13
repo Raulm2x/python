@@ -1,3 +1,6 @@
+#Programa que calcula los descuentos y bonos con los que cuenta
+#una persona según su estrato económico. 
+
 from tkinter import *
 
 # ---------Modelo----------
